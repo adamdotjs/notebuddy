@@ -1,0 +1,32 @@
+{
+	"name": "notebuddy",
+	"version": "0.0.1",
+	"description": "Create, save and edit post-it notes in your browser.",
+	"main": "server.js",
+	"scripts": {
+		"start": "nodemon server.js -e js,css,ejs"
+	},
+	"type": "module",
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"connect-mongo": "^4.6.0",
+		"dotenv": "^16.0.2",
+		"ejs": "^3.1.8",
+		"express": "^4.18.1",
+		"express-flash": "^0.0.2",
+		"express-session": "^1.17.3",
+		"mongodb": "^4.9.0",
+		"mongoose": "^6.5.4",
+		"morgan": "^1.10.0",
+		"passport": "^0.6.0",
+		"passport-google-oauth": "^2.0.0",
+		"passport-google-oidc": "^0.1.0",
+		"passport-local": "^1.0.0",
+		"validator": "^13.7.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.19"
+	}
+}

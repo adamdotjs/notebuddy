@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+	--black: #1e1e1e;
+	--white: #eee;
+	--font-primary: "Montserrat", sans-serif;
+	--font-note: "Indie Flower", sans-serif;
+}
+
+body {
+	background: var(--black);
+	color: var(--white);
+	font-family: var(--font-primary);
+	font-size: 1rem;
+	max-width: 1280px;
+	margin-inline: auto;
+	padding: 1rem;
+	line-height: 1.5;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	border-radius: 999px;
+	background: peru;
+	padding: 1rem 3rem;
+	font-weight: bold;
+	color: white;
+	transition: background 150ms ease-in;
+}
+
+button:hover {
+	background: darkorange;
+}
+
+input {
+	font: inherit;
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	width: 100%;
+	margin-block: 0.5rem 1rem;
+}
+
+.notes {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 300px);
+	gap: 2rem 1rem;
+	margin-top: 5rem;
+}
+
+.note {
+	--bg: peru;
+	aspect-ratio: 1/1;
+	background: var(--bg);
+	color: var(--black);
+	font-size: 2.4rem;
+	padding: 1.5rem 1rem;
+	position: relative;
+	font-family: var(--font-note);
+	line-height: 1.3;
+	word-wrap: break-word;
+}
+
+.note::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(-4deg);
+	background: tan;
+	filter: opacity(93%);
+	width: 100px;
+	height: 40px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
