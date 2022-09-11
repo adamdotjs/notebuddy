@@ -1,10 +1,8 @@
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-
-const UserSchema = new Schema({
-	username: {
+const UserSchema = new mongoose.Schema({
+	email: {
 		type: String,
 		unique: true,
 	},
@@ -12,7 +10,7 @@ const UserSchema = new Schema({
 });
 
 //add middleware to handle hashing passwords. NEVER store as plain text!
-UserSchema.pre("save", (next) => {
+UserSchema.pre("save", function save(next) {
 	const user = this;
 	//only hash the password if it's new or been modified
 	if (!user.isModified("password")) return next();
@@ -28,8 +26,8 @@ UserSchema.pre("save", (next) => {
 	});
 });
 
-//password verification
-UserSchema.methods.comparePassword = (candidatePassword, cb) => {
+//validate user password
+UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
 	bcrypt.compare(candidatePassword, this.password, (error, isMatch) => {
 		cb(error, isMatch);
 	});

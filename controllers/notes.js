@@ -2,7 +2,7 @@ import { Note } from "../models/noteSchema.js";
 
 export const getNotes = async (req, res) => {
 	try {
-		const notes = await Note.find();
+		const notes = await Note.find({ userId: req.user.id });
 		res.render("notes.ejs", { notes });
 	} catch (error) {
 		console.log(error);
@@ -17,7 +17,7 @@ export const addNote = async (req, res) => {
 	const color = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
 
 	try {
-		await Note.create({ note: req.body.note, color });
+		await Note.create({ note: req.body.note, color: color, userId: req.user.id });
 		console.log("Note added!");
 		res.redirect("/notes");
 	} catch (error) {

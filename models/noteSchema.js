@@ -1,10 +1,17 @@
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-
-const NoteSchema = new Schema({
-	note: String,
-	color: String,
+const NoteSchema = new mongoose.Schema({
+	note: {
+		type: String,
+		required: true,
+	},
+	color: {
+		type: String,
+	},
+	userId: {
+		type: String,
+		required: true,
+	},
 });
 
 export const Note = mongoose.model("Note", NoteSchema);
