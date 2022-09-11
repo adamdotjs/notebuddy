@@ -23,3 +23,4 @@ Completely rewritten from the example app using ESModules instead of CommonJS to
 - How to use middleware to protect routes and provide better UX - If a user is logged in, any attempts to navigate to the index or auth routes will redirect them back to the notes page.
 - How to convert CommonJS to ESModules
 - How to set a random color on each note while it was being added without requiring any user input.
+- How to deploy an app using Railway
