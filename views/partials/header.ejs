@@ -1,3 +1,8 @@
 <header>
-	<h1>NoteBuddy!</h1>
+	<span id="logo">NoteBuddy!</span>
+	<%if (isAuthenticated) { %>
+	<form action="/logout" method="POST">
+		<button>Log out</button>
+	</form>
+	<%}%>
 </header>

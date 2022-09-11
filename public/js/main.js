@@ -1,7 +1,7 @@
 // attach an event listener to the parent class so we're not adding potentially dozens of event listeners, and then delete the todo from the DB if the button is clicked
 document.querySelector(".notes").addEventListener("click", (e) => {
-	if (e.target.classList.contains("note")) {
-		handleDeleteNote(e.target.id);
+	if (e.target.classList.contains("delete")) {
+		handleDeleteNote(e.target.parentElement.id);
 	}
 });
 

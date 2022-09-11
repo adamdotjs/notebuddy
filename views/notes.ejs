@@ -26,10 +26,10 @@
 				<% notes.forEach(note => { %>
 				<div class="note" id="<%= note._id %>" style="background-color: <%= note.color %>">
 					<%= note.note %>
+					<button class="delete">X</button>
 				</div>
 				<% }) %>
 			</div>
-			<a href="/logout">Logout</a>
 		</main>
 		<script src="js/main.js"></script>
 	</body>

@@ -32,7 +32,7 @@ app.use(
 		resave: false,
 		saveUninitialized: false,
 		store: MongoStore.create({
-			client: mongoose.connection.asPromise().then((connection) => connection.getClient()),
+			client: mongoose.connection.getClient(),
 		}),
 	})
 );
@@ -40,6 +40,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use((req, res, next) => {
+	res.locals.isAuthenticated = req.isAuthenticated();
+	next();
+});
 
 // routes
 app.use("/", indexRoutes);
