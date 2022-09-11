@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { getAuth } from "../controllers/auth.js";
+import { getLogin } from "../controllers/auth.js";
 const router = Router();
 
-router.get("/login", getAuth);
+router.get("/login", getLogin);
 
 export { router as authRoutes };
